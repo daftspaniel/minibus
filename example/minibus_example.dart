@@ -4,13 +4,18 @@
 import 'package:minibus/minibus.dart';
 
 const String EVENT = "Greeting";
+const String ANOTHER_EVENT = "Goodbye";
 
 void hello() {
-  print("Hello!");
+  print("\tHello!");
 }
 
 void hi() {
-  print("Hi!");
+  print("\tHi!");
+}
+
+void bye() {
+  print("\tBye!");
 }
 
 main() {
@@ -23,6 +28,7 @@ main() {
   MiniBus bus2 = new MiniBus();
   bus2.subscribe(EVENT, hi);
   bus2.subscribe(EVENT, hello);
+  bus2.subscribe(ANOTHER_EVENT, bye);
   bus2.post(EVENT);
 
   print('\n * See what is connected:');

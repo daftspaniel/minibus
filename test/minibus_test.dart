@@ -6,14 +6,19 @@ import 'package:test/test.dart';
 
 void main() {
   group('A group of tests', () {
-    MiniBus awesome;
+    MiniBus bus;
 
     setUp(() {
-      awesome = new MiniBus();
+      bus = new MiniBus();
     });
-//
-//    test('First Test', () {
-//      expect(awesome.isAwesome, isTrue);
-//    });
+
+    group('On initialisation', () {
+      test('Event count is 0.', () {
+        expect(bus.eventCount, 0);
+      });
+      test('Event subscriptionCount is 0.', () {
+        expect(bus.subscriptionCount, 0);
+      });
+    });
   });
 }
