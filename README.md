@@ -16,4 +16,4 @@ A simple usage example:
 
 ## Features and bugs
 
-Please file feature requests and bugs!
+Please file feature requests and bugs.
