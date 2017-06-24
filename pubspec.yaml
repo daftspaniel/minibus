@@ -2,7 +2,7 @@ name: minibus
 description: A minimal synchronous event bus.
 version: 0.0.1
 homepage: https://github.com/daftspaniel/minibus
-author: daftspaniel@gmail.com
+author: Davy Mitchell <daftspaniel@gmail.com>
 
 environment:
   sdk: '>=1.20.1 <2.0.0'

@@ -20,5 +20,71 @@ void main() {
         expect(bus.subscriptionCount, 0);
       });
     });
+
+    group('Once an event is added', () {
+      setUp(() {
+        bus.subscribe("Test", () {});
+      });
+
+      test('Event count is 1.', () {
+        expect(bus.eventCount, 1);
+      });
+      test('Event subscriptionCount is 1.', () {
+        expect(bus.subscriptionCount, 1);
+      });
+    });
+
+    group('Once multiple events are added', () {
+      setUp(() {
+        bus.subscribe("Test", () {});
+        bus.subscribe("Test", () {});
+        bus.subscribe("TestX", () {});
+      });
+
+      test('Event count is 2.', () {
+        expect(bus.eventCount, 2);
+      });
+      test('Event subscriptionCount is 3.', () {
+        expect(bus.subscriptionCount, 3);
+      });
+    });
+
+    group('Once event is posted', () {
+
+      int t1 = 0;
+      int t1a = 0;
+      int t2 = 0;
+
+      setUp(() {
+        t1 = 0;
+        t1a = 0;
+        t2 = 0;
+        bus.subscribe("Test", () {
+          t1++;
+        });
+        bus.subscribe("Test", () {
+          t1++;
+          t1a++;
+        });
+        bus.subscribe("TestX", () {
+          t2++;
+        });
+
+        bus.post("Test");
+        bus.post("TestX");
+      });
+
+      test('Tally 1 is 2.', () {
+        expect(t1, 2);
+      });
+
+      test('Tally 1a is 1.', () {
+        expect(t1a, 1);
+      })
+      ;
+      test('Tally 2 is 1.', () {
+        expect(t2, 1);
+      });
+    });
   });
 }
