@@ -33,24 +33,16 @@ class MiniBus {
     subscribers.add(target);
   }
 
-  /// Post the event [String] to the subscriptions.
-  void post(String event) {
-    if (_subscriptions.containsKey(event)) {
-      List <Function> subscribers = _subscriptions[event];
-
-      subscribers.forEach((Function target) {
-        target();
-      });
-    }
-  }
-
   /// Post the event [String] and data provider [Function] to the subscriptions.
-  void postData(String event, Function dataProvider) {
+  void post(String event, [ Function dataProvider = null]) {
     if (_subscriptions.containsKey(event)) {
       List <Function> subscribers = _subscriptions[event];
 
       subscribers.forEach((Function target) {
-        target(dataProvider);
+        if (dataProvider == null)
+          target();
+        else
+          target(dataProvider);
       });
     }
   }
