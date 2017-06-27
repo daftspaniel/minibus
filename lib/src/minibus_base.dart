@@ -44,6 +44,17 @@ class MiniBus {
     }
   }
 
+  /// Post the event [String] and data provider [Function] to the subscriptions.
+  void postData(String event, Function dataProvider) {
+    if (_subscriptions.containsKey(event)) {
+      List <Function> subscribers = _subscriptions[event];
+
+      subscribers.forEach((Function target) {
+        target(dataProvider);
+      });
+    }
+  }
+
   /// Display a simple report of subscriptions to STDOUT.
   void report() {
     print(

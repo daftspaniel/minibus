@@ -80,8 +80,8 @@ void main() {
 
       test('Tally 1a is 1.', () {
         expect(t1a, 1);
-      })
-      ;
+      });
+
       test('Tally 2 is 1.', () {
         expect(t2, 1);
       });
