@@ -7,7 +7,8 @@ A library for a minimal synchronous event bus.
 A simple usage example:
 
     import 'package:minibus/minibus.dart';
-
+    String EVENT = "myevent";
+    
     main() {
       MiniBus bus1 = new MiniBus();
       bus1.subscribe(EVENT, (){print('Hello World!')});
