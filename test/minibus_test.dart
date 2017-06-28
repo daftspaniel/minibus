@@ -50,7 +50,6 @@ void main() {
     });
 
     group('Once event is posted', () {
-
       int t1 = 0;
       int t1a = 0;
       int t2 = 0;
@@ -84,6 +83,33 @@ void main() {
 
       test('Tally 2 is 1.', () {
         expect(t2, 1);
+      });
+    });
+  });
+
+  group('Events with data', () {
+    MiniBus bus;
+    int eventValue = 0;
+    int provider() {
+      return 1234;
+    }
+
+    void handler(Function dataProvider) {
+      eventValue = dataProvider();
+    }
+
+    setUp(() {
+      bus = new MiniBus();
+    });
+
+    group('When an event sends data', () {
+      setUp(() {
+        bus.subscribe("Test", handler);
+      });
+
+      test('the subscriber can get the data.', () {
+        bus.post("Test", provider);
+        expect(eventValue, 1234);
       });
     });
   });
