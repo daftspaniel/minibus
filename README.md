@@ -2,7 +2,7 @@
 
 A library for a minimal synchronous event bus.
 
-## Usage
+## Basic Usage
 
 A simple usage example:
 
