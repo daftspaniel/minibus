@@ -2,9 +2,8 @@
 // is governed by a BSD-style license that can be found in the LICENSE file.
 
 class MiniBus {
-
-  final Map<String, List<Function>> _subscriptions = new Map<String,
-      List<Function>>();
+  final Map<String, List<Function>> _subscriptions =
+      new Map<String, List<Function>>();
 
   // Return the number of events that have been subscribed to.
   int get eventCount {
@@ -22,21 +21,20 @@ class MiniBus {
 
   /// Subscribe a target to an event.
   void subscribe(String event, Function target) {
-    List <Function> subscribers;
+    List<Function> subscribers;
     if (_subscriptions.containsKey(event)) {
       subscribers = _subscriptions[event];
-    }
-    else {
-      subscribers = new List <Function>();
+    } else {
+      subscribers = new List<Function>();
       _subscriptions[event] = subscribers;
     }
     subscribers.add(target);
   }
 
   /// Post the event [String] and data provider [Function] to the subscriptions.
-  void post(String event, [ Function dataProvider = null]) {
+  void post(String event, [Function dataProvider = null]) {
     if (_subscriptions.containsKey(event)) {
-      List <Function> subscribers = _subscriptions[event];
+      List<Function> subscribers = _subscriptions[event];
 
       subscribers.forEach((Function target) {
         if (dataProvider == null)
@@ -52,7 +50,7 @@ class MiniBus {
     print(
         "Active $subscriptionCount subscription(s) for $eventCount event(s).");
     _subscriptions.keys.forEach((String key) {
-      List <Function> subscribers = _subscriptions[key];
+      List<Function> subscribers = _subscriptions[key];
 
       subscribers.forEach((Function target) {
         print("\t ['$key'] - $target");

@@ -18,3 +18,9 @@ A simple usage example:
 ## Features and bugs
 
 Please file feature requests and bugs.
+
+Run tests with (note tests mostly moved to sub-packages):
++ pub run test
+
+Check source code formatting:
++ dartfmt -n .
