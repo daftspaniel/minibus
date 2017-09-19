@@ -19,7 +19,7 @@ A simple usage example:
 
 Please file feature requests and bugs.
 
-Run tests with (note tests mostly moved to sub-packages):
+Run tests with:
 + pub run test
 
 Check source code formatting:
