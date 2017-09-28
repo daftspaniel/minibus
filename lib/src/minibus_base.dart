@@ -37,10 +37,7 @@ class MiniBus {
       List<Function> subscribers = _subscriptions[event];
 
       subscribers.forEach((Function target) {
-        if (dataProvider == null)
-          target();
-        else
-          target(dataProvider);
+        dataProvider == null ? target() : target(dataProvider);
       });
     }
   }
