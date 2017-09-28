@@ -1,5 +1,10 @@
 # Changelog
 
+
+## 0.0.4
+
+ - Minor refactoring and SDK constraint changed.
+
 ## 0.0.3
 
 - Update to prepare for Dart 2.0.
